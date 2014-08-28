@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="ash.root.navigationapp"
+	android:versionCode="1"
+	android:versionName="1.0" >
+	<uses-sdk
+		android:minSdkVersion="8"
+		android:targetSdkVersion="19" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+	<uses-permission android:name="android.permission.CONTROL_LOCATION_UPDATES" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_GPS" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.USE_CREDENTIALS" />
+	<application
+		android:name="ash.root.navigationapp.NavigationApplication"
+		android:allowBackup="true"
+		android:icon="@drawable/ic_launcher"
+		android:label="@string/app_name"
+		android:theme="@style/AppTheme" >
+		<uses-library
+			android:name="com.google.android.maps"
+			android:required="true" />
+		<uses-library android:name="com.google.android.maps" />
+		<meta-data
+			android:name="com.google.android.maps.v2.API_KEY"
+			android:value="AIzaSyBOBsRt-ZBg6aJWikYLF6kosRN5QZKWjFY" />
+		
+		<uses-feature
+			android:glEsVersion="0x00020000"
+			android:required="true" />
+		<meta-data
+			android:name="com.google.android.gms.version"
+			android:value="@integer/google_play_services_version" />
+		<activity
+			android:name="ash.root.navigationapp.activity.MainActivity"
+			android:label="@string/app_name"
+			android:screenOrientation="portrait" >
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<meta-data
+			android:name="android.app.default_searchable"
+			android:value="ash.root.navigationapp.SearchResultsActivity" />
+		<!-- Search results activity -->
+		<activity
+			android:name="ash.root.navigationapp.activity.SearchResultsActivity"
+			android:parentActivityName="ash.root.navigationapp.activity.MainActivity"
+			android:screenOrientation="portrait" >
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<meta-data
+				android:name="android.app.searchable"
+				android:resource="@xml/searchable" />
+		</activity>
+		<!-- Location found activity -->
+		<activity
+			android:name="ash.root.navigationapp.activity.RouteAddressActivity"
+			android:label="@string/activity_location_found"
+			android:parentActivityName="info.androidhive.actionbar.MainActivity" >
+		</activity>
+		<receiver
+			android:name="ash.root.navigationapp.location.StartupBroadcastReceiver"
+			android:exported="true" >
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter>
+		</receiver>
+		<receiver
+			android:name="ash.root.navigationapp.location.PassiveLocationChangedReceiver"
+			android:exported="true" >
+		</receiver>
+	</application>
+</manifest>

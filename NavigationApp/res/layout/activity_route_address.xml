@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+    <LinearLayout
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_vertical"
+    	android:layout_marginTop="10dp"
+    	android:orientation="horizontal" >
+        <TextView
+        	android:id="@+id/startAddTextView"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="center_vertical"
+        	android:layout_weight="1"
+        	android:paddingLeft="5dp"
+        	android:paddingRight="5dp"
+        	android:text="@string/start_address"
+        	android:textColor="@color/text_color_green"
+        	android:textStyle="bold" />
+        <include
+        	android:id="@+id/startAddViewContainer"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:layout_weight="3"
+        	layout="@layout/my_search_view" />
+    </LinearLayout>
+    <LinearLayout
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_vertical"
+    	android:layout_marginTop="10dp" >
+        <TextView
+        	android:id="@+id/destAddTextView"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="center_vertical"
+        	android:layout_weight="1"
+        	android:paddingLeft="5dp"
+        	android:paddingRight="5dp"
+        	android:text="@string/dest_address"
+        	android:textColor="@color/text_color_red"
+        	android:textStyle="bold" />
+        <include
+        	android:id="@+id/destAddViewContainer"
+        	android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+        	android:layout_weight="3"
+        	layout="@layout/my_search_view" />
+    </LinearLayout>
+    <Button
+    	android:id="@+id/button1"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:text="Button"
+    	android:visibility="gone" />
+    <Button
+    	android:id="@+id/button2"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:text="Button"
+    	android:visibility="gone" />
+    <ListView
+    	android:id="@+id/startDestAddrListView"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_margin="10dp"
+    	android:layout_marginTop="10dp" >
+    </ListView>
+</LinearLayout>
